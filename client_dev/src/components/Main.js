@@ -4,6 +4,7 @@ import Meetups from './Meetups'
 import About from './About'
 import MeetupDetail from './MeetupDetail'
 import AddMeetup from './AddMeetup'
+import EditMeetup from './EditMeetup'
 
 const Main = () => (
     <main>
@@ -12,6 +13,7 @@ const Main = () => (
             <Route exact path = '/about' component={About} />
             <Route exact path = '/meetups/add' component={AddMeetup} />
             <Route exact path = '/meetups/:id' component={MeetupDetail} />
+            <Route exact path = '/meetups/edit/:id' component={EditMeetup} />
         </Switch>
     </main>
 )
