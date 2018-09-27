@@ -7,7 +7,7 @@ class Navbar extends Component {
             <div>
                 <nav className="blue darken-3">
                     <div className="nav-wrapper">
-                        <a href="/" className="brand-logo center">Meetups</a>
+                        <a href="/" className="brand-logo center">Meetups - React.js and Loopback SPA</a>
                         <a data-activates="main-menu" className="button-collapse show-on-large">
                             <i className="fa fa-bars"></i>
                         </a>
