@@ -21,6 +21,7 @@ class Meetups extends Component {
                 console.log(this.state.meetups)
             })
         })
+        .catch (err => console.log(err))
     }
 
     render(){
