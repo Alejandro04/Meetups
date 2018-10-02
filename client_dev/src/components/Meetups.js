@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import MeetupItem from './MeetupItem'
+import { connect } from 'react-redux'
+import { showMeetups } from '../actions'
 
 class Meetups extends Component {
     constructor(){
@@ -11,9 +13,11 @@ class Meetups extends Component {
     }
 
     componentWillMount(){
-        this.getMeetups();
+        //this.props.showMeetups();
+        console.log(this.props.showMeetups())
     }
 
+    /*
     getMeetups(){
         axios.get('http://localhost:3001/api/meetups')
         .then(response => {
@@ -23,6 +27,7 @@ class Meetups extends Component {
         })
         .catch (err => console.log(err))
     }
+    */
 
     render(){
         const meetupItems = this.state.meetups.map((meetup, i) => {
@@ -41,4 +46,10 @@ class Meetups extends Component {
     }
 }
 
-export default Meetups
+function mapStateToProps(state) {
+    return {
+      meetups: state.meetups.showMeetups
+    }
+}
+  
+export default connect(mapStateToProps, { showMeetups })(Meetups)
