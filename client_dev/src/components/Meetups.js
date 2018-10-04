@@ -4,29 +4,10 @@ import { connect } from 'react-redux'
 import { showMeetups } from '../actions'
 
 class Meetups extends Component {
-    constructor(){
-        super()
-        this.state = {
-            meetups: []
-        }
-    }
-
+    
     componentWillMount(){
         this.props.showMeetups();
     }
-
-    /*
-    Ya no es necesario acceder directamente al estado, el estado pasa por Redux y accedemos via props
-    getMeetups(){
-        axios.get('http://localhost:3001/api/meetups')
-        .then(response => {
-            this.setState({meetups: response.data}, () => {
-                console.log(this.state.meetups)
-            })
-        })
-        .catch (err => console.log(err))
-    }
-    */
 
     render(){
         const meetupItems = this.props.meetups.map((meetup, i) => { //recorriendo el estado meetups que devuelve redux
