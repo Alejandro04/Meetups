@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios'
 import MeetupItem from './MeetupItem'
 import { connect } from 'react-redux'
 import { showMeetups } from '../actions'
@@ -13,11 +12,11 @@ class Meetups extends Component {
     }
 
     componentWillMount(){
-        //this.props.showMeetups();
-        console.log(this.props.showMeetups())
+        this.props.showMeetups();
     }
 
     /*
+    Ya no es necesario acceder directamente al estado, el estado pasa por Redux y accedemos via props
     getMeetups(){
         axios.get('http://localhost:3001/api/meetups')
         .then(response => {
@@ -30,7 +29,7 @@ class Meetups extends Component {
     */
 
     render(){
-        const meetupItems = this.state.meetups.map((meetup, i) => {
+        const meetupItems = this.props.meetups.map((meetup, i) => { //recorriendo el estado meetups que devuelve redux
             return(
                 <MeetupItem key={meetup.id} item={meetup} />
             )
@@ -48,7 +47,7 @@ class Meetups extends Component {
 
 function mapStateToProps(state) {
     return {
-      meetups: state.meetups.showMeetups
+      meetups: state.meetups.meetups  //state (return object del reducer) + meetups (combinereducer) + meetups (return object del reducer)
     }
 }
   
